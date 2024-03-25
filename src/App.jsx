@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { Container } from "react-bootstrap";
 import "./App.scss";
-import { Button } from 'react-bootstrap'
+import SearchBar from "./Components/SearchBar/SearchBar";
+import Wallpaper from "./Components/Wallpaper/Wallpaper";
+import Weather from "./Components/Weather/Weather";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Button variant='abdo'>Delete</Button>
-    </div>
+    <Container className="mt-5">
+      <Wallpaper />
+      <SearchBar />
+      <Weather />
+    </Container>
   )
 }
 
