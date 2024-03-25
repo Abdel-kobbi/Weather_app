@@ -1,0 +1,19 @@
+.searchInput {
+    background-color: #ffffff34;
+    border: none;
+
+    &:focus {
+        color: #ffffff;
+        text-transform: capitalize;
+        box-shadow: none;
+        outline: none;
+        border: none;
+        background-color: #ffffff8f;
+    }
+
+    &::placeholder {
+        text-transform: initial;
+        color: #ffffff;
+        font-weight: bold;
+    }
+}

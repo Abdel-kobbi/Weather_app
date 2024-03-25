@@ -1,0 +1,33 @@
+.weather {
+    background-color: #ffffff25;
+    border-radius: 10px;
+    color: white;
+}
+
+.date {
+    display: flex;
+    gap: .4em;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    opacity: .7;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgb(206, 202, 202) !important;
+
+    &>div {
+        padding: 0.4rem 2rem;
+        border-radius: 20px;
+        background-color: #00000073;
+        transition: all .8s ease;
+    }
+
+    &>div:hover {
+        background-color: #000000af;
+        transform: scale(1.1);
+    }
+}
