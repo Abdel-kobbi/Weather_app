@@ -4,6 +4,7 @@ import { Autocomplete, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { resetInfo, setInfo } from "../../Redux/weatherSlice";
+import { motion } from "framer-motion"
 
 export default function SearchBar() {
     const [data, setdata] = useState([]);
@@ -39,16 +40,28 @@ export default function SearchBar() {
     }
 
     return (
-        <Form>
-            <Form.Group>
-                <Autocomplete
-                    onChange={handleAutoComplete}
-                    getOptionLabel={(option) => option.formatted} clearOnBlur={false}
-                    className={styles.searchInput}
-                    options={data}
-                    renderInput={(params) => <TextField onChange={handleChange} {...params} label="Enter your city..." />}
-                />
-            </Form.Group>
-        </Form>
+        <motion.div
+            initial={{
+                x: "-100%",
+            }}
+            animate={{
+                x: 0
+            }}
+            transition={{
+                duration: 1
+            }}
+        >
+            <Form >
+                <Form.Group>
+                    <Autocomplete
+                        onChange={handleAutoComplete}
+                        getOptionLabel={(option) => option.formatted} clearOnBlur={false}
+                        className={styles.searchInput}
+                        options={data}
+                        renderInput={(params) => <TextField onChange={handleChange} {...params} label="Enter your city..." />}
+                    />
+                </Form.Group>
+            </Form>
+        </motion.div>
     )
 }
