@@ -2,9 +2,13 @@ import { Form } from "react-bootstrap";
 import styles from "./SearchBar.module.scss";
 import { Autocomplete, TextField } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { resetInfo, setInfo } from "../../Redux/weatherSlice";
 
 export default function SearchBar() {
     const [data, setdata] = useState([]);
+    const dispatch = useDispatch();
+
     const handleChange = (e) => {
         const { value } = e.target;
         if (value.trim()) {
@@ -20,13 +24,17 @@ export default function SearchBar() {
     }
 
     const handleAutoComplete = (event, value) => {
-        const { lon, lat } = value;
-        if (lon && lat) {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=933dca91c49596dbe20aa30c63bc577e`)
+        if (value) {
+            const { lon, lat } = value;
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&units=metric&lon=${lon}&appid=933dca91c49596dbe20aa30c63bc577e`)
                 .then(response => response.json())
-                .then(data => {
-                    console.log(data);
+                .then(json => {
+                    const { clouds, main, name, sys, weather, wind } = json;
+                    dispatch(setInfo({ clouds, main, name, sys, weather, wind }));
                 })
+        } else {
+            dispatch(resetInfo());
+            setdata([]);
         }
     }
 

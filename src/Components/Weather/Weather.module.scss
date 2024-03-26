@@ -1,7 +1,7 @@
 .weather {
     background-color: #ffffff25;
     border-radius: 10px;
-    color: white;
+    color: #ffffff;
 }
 
 .date {
@@ -16,7 +16,7 @@
 .footer {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     border-top: 1px solid rgb(206, 202, 202) !important;
 
     &>div {
@@ -27,7 +27,7 @@
     }
 
     &>div:hover {
-        background-color: #000000af;
+        background-color: #000000e7;
         transform: scale(1.1);
     }
 }

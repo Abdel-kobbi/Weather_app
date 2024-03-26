@@ -3,15 +3,18 @@ import "./App.scss";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import Wallpaper from "./Components/Wallpaper/Wallpaper";
 import Weather from "./Components/Weather/Weather";
-
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 function App() {
 
   return (
-    <Container className="mt-5">
-      <Wallpaper />
-      <SearchBar />
-      <Weather />
-    </Container>
+    <Provider store={store}>
+      <Container className="mt-4">
+        <Wallpaper />
+        <SearchBar />
+        <Weather />
+      </Container>
+    </Provider>
   )
 }
 
